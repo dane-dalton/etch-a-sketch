@@ -3,16 +3,16 @@ const submit = document.querySelector('.submit')
 const gridSizeForm = document.querySelector('.grid-size')
 const warningMsg = document.createElement('div')
 
-let gridSize = 16
+const defaultGridSize = 16
 
 //Create grid
+window.onload = createEtchGrid(defaultGridSize)
 
 //Grid size submissions
-gridSize = submit.addEventListener('click', () => {
+submit.addEventListener('click', () => {
 
     const input = document.querySelector('.input')
     const inputText = input.value
-    let size
     
     //remove error message if it exists
     if ( gridSizeForm.lastElementChild == warningMsg) gridSizeForm.removeChild(warningMsg)
@@ -26,17 +26,38 @@ gridSize = submit.addEventListener('click', () => {
         return;
     }
 
-    size = inputText
-    return size
+    const size = inputText
+
+    createEtchGrid(size)
 })
 
-function createEtchGrid() {
 
-}
-//Check for valid submissions (between 1-100)
 
 //Clear and create new grid
+function createEtchGrid(size) {
+    const gridItemAmount = size ** 2
+    const currentGridItems = document.querySelectorAll('.grid-item')
 
+    currentGridItems.forEach((e) => {
+        etchASketch.removeChild(e)
+    })
+
+    etchASketch.style.gridTemplateColumns = ''
+    
+    //Organize grid
+    for (let i = 0; i < size; i++) {
+        etchASketch.style.gridTemplateColumns += ' 1fr'
+    }
+
+    //Create grid items
+    for (let i = 0; i < gridItemAmount; i++) {
+        const gridItem = document.createElement('div')
+
+        gridItem.classList.add('grid-item')
+        
+        etchASketch.appendChild(gridItem)
+    }
+}
 
 
 //Clear button empties grid
