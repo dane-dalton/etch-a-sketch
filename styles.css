@@ -65,6 +65,12 @@ nav a:hover {
     align-items: center;
 }
 
+.warning-msg {
+    font-size: 14px;
+    text-align: center;
+    color: red;
+}
+
 
 
 .etch-a-sketch {
