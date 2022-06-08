@@ -10,13 +10,10 @@ const defaultGridSize = 16
 
 //Create grid
 window.onload = createEtchGrid(defaultGridSize)
-let selectedColor = 'black'
-
-selectedColor = selectColor()
 
 createNewGrid()
 clearGrid()
-drawOnGrid(selectedColor)
+drawOnGrid()
 
 
 
@@ -78,9 +75,31 @@ function createEtchGrid(size) {
 function drawOnGrid() {
     const gridItems = document.querySelectorAll('.grid-item')
 
+    let color = 'black'
+
+    //Listen for color button click
+    colorBtns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            color = e.target.value
+        })
+    })
+
+    //Colors the box based on the selected color
     gridItems.forEach((gridItem) => {
         gridItem.addEventListener('mouseover', (e) => {
-            e.target.style.backgroundColor = 'black'
+            if ( color == 'opacity') {
+                if ( e.target.style.backgroundColor != 'black') {
+                    e.target.style.opacity = 0
+                }
+
+                e.target.style.backgroundColor = 'black'
+
+                if ( e.target.style.opacity < 1 ) {
+                    e.target.style.opacity = (parseFloat(e.target.style.opacity) + .1)
+                } 
+            } else {
+                e.target.style.backgroundColor = color
+            }
         })
     })
 }
@@ -97,11 +116,3 @@ function clearGrid() {
     })
 }
 
-//Clicking a new color changes sketch color
-function selectColor() {
-    colorBtns.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            return e.target.value
-        })
-    })
-}
