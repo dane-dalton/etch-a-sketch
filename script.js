@@ -8,6 +8,8 @@ const defaultGridSize = 16
 //Create grid
 window.onload = createEtchGrid(defaultGridSize)
 
+drawOnGrid()
+
 //Grid size submissions
 submit.addEventListener('click', () => {
 
@@ -29,6 +31,7 @@ submit.addEventListener('click', () => {
     const size = inputText
 
     createEtchGrid(size)
+    drawOnGrid()
 })
 
 
@@ -38,16 +41,14 @@ function createEtchGrid(size) {
     const gridItemAmount = size ** 2
     const currentGridItems = document.querySelectorAll('.grid-item')
 
-    currentGridItems.forEach((e) => {
-        etchASketch.removeChild(e)
+    currentGridItems.forEach((currentGridItem) => {
+        etchASketch.removeChild(currentGridItem)
     })
 
     etchASketch.style.gridTemplateColumns = ''
     
     //Organize grid
-    for (let i = 0; i < size; i++) {
-        etchASketch.style.gridTemplateColumns += ' 1fr'
-    }
+    etchASketch.style.gridTemplateColumns = `repeat(${size}, 1fr)`
 
     //Create grid items
     for (let i = 0; i < gridItemAmount; i++) {
@@ -57,13 +58,23 @@ function createEtchGrid(size) {
         
         etchASketch.appendChild(gridItem)
     }
+
+    //Eventually remove border when grid size >50
 }
 
-
-//Clear button empties grid
-
-
-
 //Hovering a grid square changes background color
+function drawOnGrid() {
+    const gridItems = document.querySelectorAll('.grid-item')
+
+    gridItems.forEach((gridItem) => {
+        gridItem.addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = 'black'
+        })
+    })
+}
+
+//Clear button empties grid colors
+
+
 
 //Clicking a new color changes sketch color

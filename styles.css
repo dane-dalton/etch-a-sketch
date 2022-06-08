@@ -83,7 +83,7 @@ nav a:hover {
 }
 
 .grid-item {
-    border: 1px solid gray;
+    border: 1px dotted gray;
 }
 
 
@@ -93,22 +93,24 @@ nav a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color:hsl(50, 100%, 90%);
 }
 
 .color-grid-container {
     display: grid;
-    grid-template-columns: 24px 24px 24px;
+    grid-template-columns: repeat(3, 28px);
     gap: 24px;
-    grid-template-rows: 24px 24px 24px;
+    grid-template-rows: repeat(3, 28px);
 }
 
 .btn-color {
-    border: 2px solid black;
+    border: 4px ridge white;
+    border-radius: 5px;
 }
 
 .btn-opacity {
     background-color:black;
-    opacity: 10%;
+    opacity: 40%;
 }
 
 .btn-black {
