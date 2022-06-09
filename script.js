@@ -11,13 +11,15 @@ const defaultGridSize = 16
 //Create grid
 window.onload = createEtchGrid(defaultGridSize)
 
-createNewGrid()
+//Functionality for etch grid on load
 clearGrid()
 drawOnGrid()
 
 
+createNewGrid()
 
-//Grid size submissions
+
+//Grid size submissions and functionality for the new grid
 function createNewGrid() {
     submit.addEventListener('click', () => {
 
@@ -64,11 +66,18 @@ function createEtchGrid(size) {
         const gridItem = document.createElement('div')
 
         gridItem.classList.add('grid-item')
+
+        removeGridBorder(size, gridItem)
         
         etchASketch.appendChild(gridItem)
     }
+}
 
-    //Eventually remove border when grid size >50
+//Remove grid border when grid size is gte 50
+function removeGridBorder(size, gridItem) {
+    if ( size >= 50 ) {
+        gridItem.style.border = '0 dotted gray'
+    }
 }
 
 //Hovering a grid square changes background color
