@@ -23,6 +23,7 @@ body {
     justify-content: space-between;
 }
 
+/*Header styles*/
 nav {
     background-color: var(--head-bg-color);
     padding: 8px;
@@ -52,6 +53,14 @@ nav a:hover {
     margin-left: 4px;
 }
 
+/*Main content styles*/
+.grid-size,
+.etch-a-sketch,
+.sketch-color,
+.btn-clear {
+    box-shadow: 1px 1px 4px var(--head-bg-color);
+}
+
 .main-container {
     flex-grow: 1;
     display: flex;
@@ -64,7 +73,7 @@ nav a:hover {
     padding: 32px;
     display: grid;
     grid-template-columns: repeat(3, 16vw);
-    grid-auto-rows: auto;
+    grid-template-rows: minmax(16vw, auto), minmax(16vw, auto), auto;
     justify-content: center;
     column-gap: 64px;
     row-gap: 32px;
@@ -91,6 +100,10 @@ nav a:hover {
     font-size: 18px;
     color: var(--main-bg-color);
     font-weight: bold;
+    padding: 16px;
+    margin: 0 16px;
+    box-shadow: 0 0 10px var(--main-bg-color);
+    border-radius: 10px;
 }
 
 .form-container {
@@ -109,21 +122,29 @@ nav a:hover {
     padding: 4px;
     border: 4px ridge var(--head-bg-color);
     border-radius: 5px;
+    color: var(--main-bg-color)
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 .submit {
-    width: 54px;
     font-size: 12px;
     font-weight: bold;
-    padding: 2px;
+    padding: 4px;
     border: 4px ridge var(--head-bg-color);
     border-radius: 5px;
+    color: var(--main-bg-color)
 }
 
 .warning-msg {
     font-size: 14px;
     text-align: center;
     color: hsl(0, 100%, 40%);
+    padding: 0 16px;
 }
 
 
@@ -147,22 +168,39 @@ nav a:hover {
     border: 15px ridge var(--head-bg-color);
     border-radius: 15px;
     background-color: var(--form-bg-color);
+    flex-shrink: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+}
+
+.sketch-color-head {
+    padding: 16px 16px;
+    margin: 8px 16px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--main-bg-color);
 }
 
 .color-grid-container {
+    padding: 16px;
     display: grid;
-    grid-template-columns: repeat(3, 28px);
-    gap: 28px;
-    grid-template-rows: repeat(3, 28px);
+    aspect-ratio: 1;
+    grid-template-columns: repeat(3, 3vw);
+    
 }
 
 .btn-color {
+    width: 2vw;
+    aspect-ratio: 1;
+    place-self: center;
     border: 4px ridge white;
     border-radius: 5px;
+    box-shadow: 1px 1px 3px var(--main-bg-color);
 }
 
 .btn-opacity {
@@ -207,9 +245,16 @@ nav a:hover {
     grid-row: 3 / 4;
     justify-self: flex-end;
     align-self: flex-start;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px;
+    border: 6px ridge var(--head-bg-color);
+    border-radius: 10px;
+    color: var(--main-bg-color)
 }
 
 
+/*Footer styles*/
 .footer-container {
     background-color: hsl(255, 20%, 35%);
     display: flex;
