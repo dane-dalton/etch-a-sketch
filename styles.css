@@ -1,4 +1,7 @@
+@import 'fonts.css';
+
 :root {
+    font-family: 'Orbitron', sans-serif;
     --main-bg-color: hsl(255, 20%, 20%);
     --main-outline-color: hsl(30, 100%, 70%);
     --head-bg-color: hsl(255, 20%, 50%);
@@ -9,7 +12,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Orbitron', sans-serif;
 }
 
 body {
@@ -115,7 +118,6 @@ nav a:hover {
     padding: 2px;
     border: 4px ridge var(--head-bg-color);
     border-radius: 5px;
-
 }
 
 .warning-msg {
