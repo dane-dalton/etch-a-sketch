@@ -15,3 +15,5 @@ Lessons learned from this project:
 -While integers and decimals are both 'numbers' in JS, when parsing a DOM element dont forget that ints are still different from floats
 
 -If a grid is misbehaving, take a look at 1) the container dimensions the grid is nested in and 2) the content dimensions within the grid
+
+-Do more thorough bug tests on completion. Input box was bug free outside of giving a float instead of an int. Discovered thanks to my friends who were willing to do some bug tests!

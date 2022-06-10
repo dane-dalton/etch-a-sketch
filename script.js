@@ -36,6 +36,12 @@ function createNewGrid() {
             warningMsg.classList.add('warning-msg')
             gridSizeForm.appendChild(warningMsg)
             return;
+         } else if ( !(Number.isInteger(parseFloat(inputText))) ) {
+            warningMsg.textContent = 'This grid only takes integers between 1 and 100'
+
+            warningMsg.classList.add('warning-msg')
+            gridSizeForm.appendChild(warningMsg)
+            return;
         }
     
         const size = inputText
