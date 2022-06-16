@@ -70,7 +70,7 @@ nav a:hover {
 }
 
 .content-container {
-    padding: 32px;
+    padding: 16px;
     display: grid;
     grid-template-columns: repeat(3, 16vw);
     grid-template-rows: minmax(16vw, auto), minmax(16vw, auto), auto;
