@@ -17,7 +17,7 @@
 
 body {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,6 +43,7 @@ nav a {
     color: var(--main-outline-color);
     justify-self: flex-start;
     align-self: flex-start;
+    flex-wrap: wrap;
 }
 
 nav a:hover {
